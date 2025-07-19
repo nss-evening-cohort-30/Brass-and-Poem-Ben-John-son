@@ -249,7 +249,7 @@ void UpdateProduct(List<Product> products, List<ProductType> productTypes)
                 Console.WriteLine("Enter new product category: Enter 1 for Brass, 2 for Poetry");
                 int newCat = int.Parse(Console.ReadLine());
                 products[j].ProductTypeId = newCat;
-                Console.WriteLine("New category added!");
+                Console.WriteLine("New category has been added!");
             }
         }
     }
