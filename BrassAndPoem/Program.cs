@@ -94,58 +94,54 @@ List<ProductType> types = new List<ProductType>()
 
 
 
-void DisplayMenu(List<Product> products, List<ProductType> types)
+void DisplayMenu()
 {
-   
-   
-    string choice = null;
-    while (choice != "5")
+    Console.WriteLine($@"1. Display all products
+2. Delete a product
+3. Add a new product
+4. Update product properties
+5. Exit");
+}
+DisplayMenu();
+
+string choice = Console.ReadLine();
+
+while (choice != "5")
+{
+    if (choice == "1")
     {
-        Console.WriteLine($@"
-                         1. Display all products
-                         2. Delete a product
-                         3. Add a new product
-                         4. Update product properties
-                         5. Exit");
-       choice = Console.ReadLine();
-        if (choice == "1")
-        {
-            DisplayAllProducts(products, types);
-        }
-        else if (choice == "2")
-        {
-            DeleteProduct(products, types);
-        }
-        else if (choice == "3")
-        {
-            AddProduct(products, types);
-        }
-        else if (choice == "4")
-        {
-            UpdateProduct(products, types);
-        }
-        else if (choice == "5")
-        {
-            Console.WriteLine("Goodbye");
-        }
+        DisplayAllProducts(products, types);
     }
+    else if (choice == "2")
+    {
+        DeleteProduct(products, types);
+    }
+    else if (choice == "3")
+    {
+        AddProduct(products, types);
+    }
+    else if (choice == "4")
+    {
+        UpdateProduct(products, types);
+    }
+    else if (choice == "5")
+    {
+        Console.WriteLine("Goodbye");
+    }
+    Console.WriteLine();
+     DisplayMenu();
+    choice = Console.ReadLine();
 }
 
-void DisplayAllProducts(List<Product> products, List<ProductType> productTypes)
-{
-  
-    ProductType brass = types.FirstOrDefault(x => x.Title == "Brass");
-    ProductType poetry = types.FirstOrDefault(x => x.Title == "Poetry");
-
-    
-    
+    void DisplayAllProducts(List<Product> products, List<ProductType> productTypes)
+    {
+        ProductType brass = types.FirstOrDefault(x => x.Title == "Brass");
+        ProductType poetry = types.FirstOrDefault(x => x.Title == "Poetry");
         for (int i = 0; i < products.Count; i++)
         {
             Console.WriteLine($"{i + 1}. {products[i].Name} for ${products[i].Price} is in the {(products[i].ProductTypeId == 1 ? brass.Title : poetry.Title)} category");
         }
-    
-    
-}
+    }
 void DeleteProduct(List<Product> products, List<ProductType> productTypes)
 {
     Console.WriteLine("Which product would you like to delete?");
@@ -258,7 +254,7 @@ void UpdateProduct(List<Product> products, List<ProductType> productTypes)
 
 
 
-DisplayMenu(products, types);
+
 
 // don't move or change this!
 public partial class Program { }
