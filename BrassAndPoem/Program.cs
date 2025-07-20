@@ -149,17 +149,12 @@ while (choice != "5")
 void DeleteProduct(List<Product> products, List<ProductType> productTypes)
 {
     Console.WriteLine("Which product would you like to delete?");
-    
-    // Display the products with their category name
     for (int i = 0; i < products.Count; i++)
     {
         var type = productTypes.FirstOrDefault(t => t.Id == products[i].ProductTypeId);
         Console.WriteLine($"{i + 1}. {products[i].Name} for ${products[i].Price} in the {type?.Title ?? "Unknown"} category");
     }
-
     int choice = int.Parse(Console.ReadLine());
-
-    // Remove the product based on its position in the list
     if (choice >= 1 && choice <= products.Count)
     {
         products.RemoveAt(choice - 1);
@@ -195,53 +190,6 @@ void AddProduct(List<Product> products, List<ProductType> productTypes)
 
 void UpdateProduct(List<Product> products, List<ProductType> productTypes)
 {
-    // ProductType brass = types.FirstOrDefault(x => x.Title == "Brass");
-    // ProductType poetry = types.FirstOrDefault(x => x.Title == "Poetry");
-    // Console.WriteLine("Which product would you like to update?");
-    // void DisplayEdit()
-    // {
-    //     for (int i = 0; i < products.Count; i++)
-    //     {
-    //         Console.WriteLine(@$"{i + 1}. {products[i].Name} for {products[i].Price} in the {(products[i].ProductTypeId == 1 ? brass.Title : poetry.Title)} category ");
-    //     }
-    // }
-    // DisplayEdit();
-    // int editProduct = int.Parse(Console.ReadLine());
-    // for (int j =0; j < products.Count; j++)
-    // {
-    //     if (editProduct == products[j].productId)
-    //     {
-    //         Console.WriteLine(@$"What would you like to edit:
-    //                             1. Name: {products[j].Name}
-    //                             2. Price: {products[j].Price}
-    //                             3. Category: {(products[j].ProductTypeId == 1 ? brass.Title : poetry.Title)}");
-    //         int userChange = int.Parse(Console.ReadLine());
-    //         if (userChange == 1)
-    //         {
-    //             Console.WriteLine("Enter a new product name: ");
-    //             string newName = Console.ReadLine();
-    //             products[j].Name = newName;
-    //             Console.WriteLine("New name added!");
-    //         }
-    //         else if (userChange == 2)
-    //         {
-    //             Console.WriteLine("Enter new product price: ");
-    //             decimal newPrice = Convert.ToDecimal(Console.ReadLine());
-    //             products[j].Price = newPrice;
-    //             Console.WriteLine("New price added!");
-    //         }
-    //         else if ( userChange == 3)
-
-    //         {
-    //             Console.WriteLine("Enter new product category: Enter 1 for Brass, 2 for Poetry");
-    //             int newCat = int.Parse(Console.ReadLine());
-    //             products[j].ProductTypeId = newCat;
-    //             Console.WriteLine("New category has been added!");
-    //         }
-    //     }
-    // }
-    
-
     Console.WriteLine("Which product would you like to update?");
     for (int i = 0; i < products.Count; i++)
     {
@@ -260,9 +208,6 @@ void UpdateProduct(List<Product> products, List<ProductType> productTypes)
 
         Console.WriteLine("New name added!");
     }
-
-
-    
 }
 
 
